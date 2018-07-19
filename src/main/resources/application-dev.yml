@@ -1,3 +1,14 @@
 server:
   port: 80
 nameaaaaaa: aa #在其他位置@Value获取
+spring: # mysql配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/company
+    username:  root
+    password: 1234
+  jpa:  #datasourlJPA配置
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
