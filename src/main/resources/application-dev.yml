@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8080
 nameaaaaaa: aa #在其他位置@Value获取
 spring: # mysql配置
   datasource:
@@ -11,4 +11,7 @@ spring: # mysql配置
     hibernate:
       ddl-auto: update
     show-sql: true
+  thymeleaf:
+    prefix: /views/
+    encoding: UTF-8
 
