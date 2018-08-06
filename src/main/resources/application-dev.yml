@@ -17,7 +17,3 @@ spring: # mysql配置
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
-  thymeleaf:
-    prefix: /views/
-    encoding: UTF-8
-

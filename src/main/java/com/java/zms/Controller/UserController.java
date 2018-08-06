@@ -1,11 +1,9 @@
 package com.java.zms.Controller;
 
-import com.java.zms.Dao.UserDao;
 import com.java.zms.Domain.User;
 import com.java.zms.Service.UserService;
-import org.apache.ibatis.annotations.ResultMap;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +13,7 @@ import java.util.Map;
 
 @RequestMapping(value = "/user")
 @RestController
+@Log
 public class UserController {
     @Autowired
     private UserService userService;
@@ -23,11 +22,6 @@ public class UserController {
     public Map<String,Object> Insert(User user){
         return userService.Insert(user);
     }
-    @GetMapping(value = "/test")
-    public String test(){
-        return "李龙";
-    }
-
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public int addUser(User user){

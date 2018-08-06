@@ -1,13 +1,11 @@
 package com.java.zms.Dao;
 
 import com.java.zms.Domain.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 //import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+@Mapper
 public interface UserDao{
     @Select("select * from user where id = #{id}")
     public User selectUserById(int id);
