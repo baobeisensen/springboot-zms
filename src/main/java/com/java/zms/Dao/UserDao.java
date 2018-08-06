@@ -14,7 +14,7 @@ public interface UserDao{
     public List<User> selectUserByName(String userName);
 
     @Insert("insert into user(userName,userAge,userAddress) values (#{userName},#{userAge},#{userAddress})")
-    public void addUser(User user);
+    public int addUser(User user);
 
     @Update("update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}")
     public void updateUser(User user);
