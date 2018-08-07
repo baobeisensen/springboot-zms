@@ -8,7 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.java.zms.Dao")
+//@MapperScan({"com.java.zms.Dao","com.java.zms.Service"})
+@MapperScan({"com.java.zms"})
 public class ZmsApplication {
    static Logger log  = LoggerFactory.getLogger(ZmsApplication.class);
 

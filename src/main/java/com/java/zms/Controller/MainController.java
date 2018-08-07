@@ -4,10 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "/main")
+@RequestMapping(value = "main")
 public class MainController  {
-    @RequestMapping(value = "/font")
+
+    @RequestMapping(value = "font")
     public String toFront() {
-        return "/font/index";
+        return "font/index";
+    }
+
+    @RequestMapping(value = "services")
+    public String services() {
+        return "font/services";
     }
 }

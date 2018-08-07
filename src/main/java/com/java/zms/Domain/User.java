@@ -15,11 +15,17 @@ public class User implements Serializable {
  //   @Id
   //  @GeneratedValue
     private Integer id;
+//    用户名
     String userName;
+//    密码
     String pwd;
+//    电话
     String phone;
+//    昵称
     String nickName;
+//    性别
     int sex;
+//    年龄
     int old;
 
     public Integer getId() {
