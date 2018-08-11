@@ -11,9 +11,30 @@ public class MainController  {
     public String toFront() {
         return "font/index";
     }
-
+//font
     @RequestMapping(value = "services")
     public String services() {
         return "font/services";
+    }
+    @RequestMapping(value = "about")
+    public String about() {
+        return "font/about";
+    }
+    @RequestMapping(value = "blog")
+    public String blog() {
+        return "font/blog";
+    }
+    @RequestMapping(value = "portfolio")
+    public String portfolio() {
+        return "font/portfolio";
+    }
+    @RequestMapping(value = "contact")
+    public String contact() {
+        return "font/contact";
+    }
+//back
+    @RequestMapping(value = "controller")
+    public String controller() {
+        return "back/index";
     }
 }

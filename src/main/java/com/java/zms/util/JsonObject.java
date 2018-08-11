@@ -73,6 +73,7 @@ public class JsonObject implements Map<String, Object> {
     public int hashCode() {
         return 0;
     }
+
     public Map<String, Object> getMap(){
         return this.getMap();
     }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 public interface UserService {
 
-    Map<String, Object> Insert(User user);
+    String insert(User user);
 
     Object findAllUser(int pageNum, int pageSize);
 

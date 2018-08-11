@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@MapperScan({"com.java.zms.Dao","com.java.zms.Service"})
-@MapperScan({"com.java.zms"})
+@MapperScan({"com.java.zms.Dao","com.java.zms.Service"})
 public class ZmsApplication {
    static Logger log  = LoggerFactory.getLogger(ZmsApplication.class);
 

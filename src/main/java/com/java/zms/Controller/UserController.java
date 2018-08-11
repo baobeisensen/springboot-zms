@@ -16,13 +16,12 @@ import java.util.Map;
 @RestController
 @Log
 public class UserController {
-    @Autowired
     @Resource
     private UserService userService;
 
     @GetMapping(value = "/insert")
-    public Map<String,Object> Insert(User user){
-        return userService.Insert(user);
+    public String Insert(User user){
+        return userService.insert(user);
     }
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})

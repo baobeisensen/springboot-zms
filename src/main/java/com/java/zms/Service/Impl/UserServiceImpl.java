@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public Map<String, Object> Insert(User user) {
+    public String insert(User user) {
         int i=0;
         String result="保存失败";
         /*首先判断账号是否存在*/
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         if(i==1){
             result="保存成功";
         }
-        return new JsonObject().put("status",result).;
+        return result;
     }
 
     @Override
