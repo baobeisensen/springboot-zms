@@ -20,8 +20,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(value = "/insert")
-    public String Insert(User user){
-        return userService.insert(user);
+    public String Insert(String userName){
+       return  "状貌森程序返回的失败"+userName;
+       //return userService.insert(user);
     }
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
