@@ -10,10 +10,10 @@ public interface UserDao{
     @Select("select * from user where id = #{id}")
     public User selectUserById(int id);
 
-    @Select("select * from user where userName = #{userName}")
+    @Select("select * from user where user_name =#{userName}")
     public List<User> selectUserByName(String userName);
 
-    @Insert("insert into user(userName,userAge,userAddress) values (#{userName},#{userAge},#{userAddress})")
+    @Insert("insert into user(user_name,old,phone) values (#{userName},#{old},#{phone})")
     public int addUser(User user);
 
     @Update("update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}")
