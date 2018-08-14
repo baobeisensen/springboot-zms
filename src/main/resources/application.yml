@@ -5,11 +5,12 @@ spring:
   mvc:
     static-path-pattern: /static/**
   thymeleaf:
-    mode: HTML
+    mode: html
     suffix: .html
     encoding: utf-8
     servlet:
       content-type: text/html
+    cache: false
    # reactive:
    #   chunked-mode-view-names: HTML
    #   full-mode-view-names: HTML
