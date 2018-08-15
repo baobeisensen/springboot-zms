@@ -3,8 +3,6 @@ package com.java.zms.Service.Impl;
 import com.java.zms.Dao.UserDao;
 import com.java.zms.Domain.User;
 import com.java.zms.Service.UserService;
-import com.java.zms.util.JsonObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Resource
     private UserDao userDao;
 
     @Override
@@ -21,13 +19,6 @@ public class UserServiceImpl implements UserService {
         String result="保存失败";
         /*首先判断账号是否存在*/
         List<User> users =  userDao.selectUserByName(user.getUserName());
-        if(null==users){
-            try{
-                 i = userDao.addUser(user);
-            }  catch (Exception e){
-                   result="保存异常，清联系管理员";
-            }
-
         if(null!=users){
             i = userDao.addUser(user);
         }else{
