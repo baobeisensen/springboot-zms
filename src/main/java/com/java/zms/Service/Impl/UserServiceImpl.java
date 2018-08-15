@@ -3,8 +3,6 @@ package com.java.zms.Service.Impl;
 import com.java.zms.Dao.UserDao;
 import com.java.zms.Domain.User;
 import com.java.zms.Service.UserService;
-import com.java.zms.util.JsonObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,7 +27,7 @@ public class UserServiceImpl implements UserService {
                 return "你那边传过来的账号为"+user.getUserName()+"------密码为"+user.getPwd();
             }
         }else{
-            result="账号已存在，不要重复保存";
+            result="张号已存在，不要重复保存";
         }
         if(i==1){
             result="保存成功";
