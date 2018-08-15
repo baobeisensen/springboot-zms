@@ -21,8 +21,8 @@ public class UserController {
 
     @GetMapping(value = "/insert")
     public String Insert(User user){
-       //return  "状貌森程序返回的"+user.getUserName();
-       return userService.insert(user);
+       //return  "程序接收到的"+userName;
+    return userService.insert(user);
     }
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})

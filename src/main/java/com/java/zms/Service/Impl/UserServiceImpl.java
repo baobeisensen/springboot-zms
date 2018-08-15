@@ -7,6 +7,7 @@ import com.java.zms.util.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -27,6 +28,8 @@ public class UserServiceImpl implements UserService {
                    result="保存异常，清联系管理员";
             }
 
+        if(null!=users){
+            i = userDao.addUser(user);
         }else{
             result="张号已存在，不要重复保存";
         }
