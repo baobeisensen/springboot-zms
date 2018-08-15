@@ -21,13 +21,20 @@ public class UserServiceImpl implements UserService {
         String result="保存失败";
         /*首先判断账号是否存在*/
         List<User> users =  userDao.selectUserByName(user.getUserName());
-        if(null!=users){
-            i = userDao.addUser(user);
+        if(null==users||users.size()==0){
+            try {
+                i = userDao.addUser(user);
+            }catch (Exception e){
+                e.printStackTrace();
+                return "你那边传过来的账号为"+user.getUserName()+"------密码为"+user.getPwd();
+            }
         }else{
             result="账号已存在，不要重复保存";
         }
         if(i==1){
             result="保存成功";
+        }else{
+            result="保存失败";
         }
         return result;
     }
