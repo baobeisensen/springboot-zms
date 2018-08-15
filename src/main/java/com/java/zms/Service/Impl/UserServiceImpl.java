@@ -21,7 +21,12 @@ public class UserServiceImpl implements UserService {
         /*首先判断账号是否存在*/
         List<User> users =  userDao.selectUserByName(user.getUserName());
         if(null==users){
-            i = userDao.addUser(user);
+            try{
+                 i = userDao.addUser(user);
+            }  catch (Exception e){
+                   result="保存异常，清联系管理员";
+            }
+
         }else{
             result="张号已存在，不要重复保存";
         }
