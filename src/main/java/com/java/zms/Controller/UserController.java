@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Map;
 
-@RequestMapping(value = "/user")
+@RequestMapping(value = "user")
 @RestController
 @Log
 public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping(value = "/insert")
+    @GetMapping(value = "insert")
     public String Insert(User user){
        //return  "程序接收到的"+userName;
     return userService.insert(user);
     }
 
-    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "add", produces = {"application/json;charset=UTF-8"})
     public int addUser(User user){
         return userService.addUser(user);
     }
