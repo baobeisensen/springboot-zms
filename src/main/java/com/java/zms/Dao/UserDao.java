@@ -13,7 +13,7 @@ public interface UserDao{
     @Select("select * from user where user_name =#{userName}")
     public List<User> selectUserByName(String userName);
 
-    @Insert("insert into user(user_name,pwd,old,phone) values (#{user.userName},#{user.pwd},#{user.old},#{user.phone})")
+    @Insert("insert into user(user_name,pwd,email,phone) values (#{user.userName},#{user.pwd},#{user.email},#{user.phone})")
     public int addUser(@Param("user") User user);
 
     @Update("update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}")

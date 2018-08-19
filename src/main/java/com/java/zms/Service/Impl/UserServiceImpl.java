@@ -24,10 +24,12 @@ public class UserServiceImpl implements UserService {
                 i = userDao.addUser(user);
             }catch (Exception e){
                 e.printStackTrace();
-                return "你那边传过来的账号为"+user.getUserName()+"------密码为"+user.getPwd();
+                result = "网络异常;保存失败";
+                return result;
             }
         }else{
-            result="张号已存在，不要重复保存";
+            result="用户已存在";
+            return result;
         }
         if(i==1){
             result="保存成功";

@@ -14,17 +14,35 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script type="text/javascript" src="zms/../../static/js/jquery.min.js"></script>
 		<script type="text/javascript">
-			function check(form) {
-			    console.log(document.getElementsByTagName("Name"));
-				if(document.getElementsByTagName("Name").length==0) {
-					alert("请输入用户帐号!");
+			function register(){
+			    var userName=document.getElementById("Name").value;
+			    var pwd = document.getElementById("Password").value;
+			    var email = document.getElementById("Email").value;
+			    var phone = document.getElementById("phone").value;
+				if(userName==null||userName=='') {
+					alert("请输入用户名!");
 					return false;
 				}
-				if(document.getElementsByTagName("Password")==''){
+				if(pwd==null||pwd==''){
 					alert("请输入登录密码!");
 					return false;
 				}
-				return true;
+                if(email==null||email==''){
+                    alert("请输入邮箱!");
+                    return false;
+                }
+                if(phone==null||phone==''){
+                    alert("请输入手机号!");
+                    return false;
+                }
+				$.ajax({
+                    url:'../user/insert',
+                    data:{'userName':userName,'pwd':pwd,'email':email,'phone':phone},
+                    success: function(data) {
+                        alert(data);
+                }
+
+                })
 			}
 		</script>
 	<!-- //Meta-Tags -->
@@ -80,15 +98,15 @@
 		</div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
 		<div class="register w3layouts agileits">
 			<h2>注 册</h2>
-			<form action="user/insert" method="post">
-				<input type="text" Name="Name" placeholder="用户名" required="">
-				<input type="text" Name="Email" placeholder="邮箱" required="">
-				<input type="password" Name="Password" placeholder="密码" required="">
-				<input type="text" Name="Phone Number" placeholder="手机号码" required="">
+			<form>
+				<input type="text" Name="Name" id="Name" placeholder="用户名" required="">
+				<input type="text" Name="Email" id="Email" placeholder="邮箱" required="">
+				<input type="password" Name="Password" id="Password" placeholder="密码" required="">
+				<input type="text" Name="Phone Number" id="phone" placeholder="手机号码" required="">
 			</form>
 			<div class="send-button w3layouts agileits">
 				<form>
-					<input type="submit" value="免费注册" onclick="return check(this.form)">
+					<input type="submit" value="免费注册" onclick="register()">
 				</form>
 			</div>
 			<div class="clear"></div>
