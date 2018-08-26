@@ -3,6 +3,7 @@ package com.java.zms.Service.Impl;
 import com.java.zms.Dao.UserDao;
 import com.java.zms.Domain.User;
 import com.java.zms.Service.UserService;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -53,14 +54,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(User user) {
-            User users =  userDao.selectUserByName(user.getUserName());
-            if(null!=user){
-                user.getPwd().equals(users.getPwd());
+    public String login(User user, HttpSession session) {
+        User users = userDao.selectUserByName(user.getUserName());
+        if (null != user) {
+            if (user.getPwd().equals(users.getPwd())) {
+                session.setAttribute("SESSION_KEY", user.getUserName());
+                return "back/index";
+            } else {
+                return "redirect:/main/controller";
             }
-
-            return "user/index";
+        } else {
+            return "密码错误";
         }
-
-
+    }
 }

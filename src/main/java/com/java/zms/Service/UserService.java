@@ -1,11 +1,8 @@
 package com.java.zms.Service;
 
 import com.java.zms.Domain.User;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.stereotype.Component;
 
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 public interface UserService {
 
     String insert(User user);
@@ -18,5 +15,5 @@ public interface UserService {
 
     Object test();
 
-    String login(User user);
+    String login(User user, HttpSession session);
 }
