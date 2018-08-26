@@ -6,7 +6,6 @@ import com.java.zms.Service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,25 +15,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public String insert(User user) {
         int i=0;
-        String result="保存失败";
+        String result=null;
         /*首先判断账号是否存在*/
-        List<User> users =  userDao.selectUserByName(user.getUserName());
-        if(null==users||users.size()==0){
+        User users =  userDao.selectUserByName(user.getUserName());
+        if(null!=users){
+            result="用户已存在,请直接登陆";
+        }else{
             try {
                 i = userDao.addUser(user);
+                result="注册成功;请登陆";
             }catch (Exception e){
                 e.printStackTrace();
-                result = "网络异常;保存失败";
-                return result;
+                result = "网络异常";
             }
-        }else{
-            result="用户已存在";
-            return result;
-        }
-        if(i==1){
-            result="保存成功";
-        }else{
-            result="保存失败";
         }
         return result;
     }
@@ -58,4 +51,16 @@ public class UserServiceImpl implements UserService {
     public Object test() {
         return userDao.test();
     }
+
+    @Override
+    public String login(User user) {
+            User users =  userDao.selectUserByName(user.getUserName());
+            if(null!=user){
+                user.getPwd().equals(users.getPwd());
+            }
+
+            return "user/index";
+        }
+
+
 }

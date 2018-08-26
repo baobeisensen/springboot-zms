@@ -3,15 +3,11 @@ package com.java.zms.Controller;
 import com.java.zms.Domain.User;
 import com.java.zms.Service.UserService;
 import lombok.extern.java.Log;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Map;
-
 @RequestMapping(value = "user")
 @RestController
 @Log
@@ -19,7 +15,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping(value = "insert")
+    @RequestMapping(value = "insert")
     public String Insert(User user){
        //return  "程序接收到的"+userName;
     return userService.insert(user);
@@ -40,4 +36,5 @@ public class UserController {
         return userService.test();
        // return userService.findAll();
     }
+
 }

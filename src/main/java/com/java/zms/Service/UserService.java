@@ -17,4 +17,6 @@ public interface UserService {
     Object findAll();
 
     Object test();
+
+    String login(User user);
 }

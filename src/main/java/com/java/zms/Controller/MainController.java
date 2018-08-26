@@ -1,11 +1,17 @@
 package com.java.zms.Controller;
 
+import com.java.zms.Domain.User;
+import com.java.zms.Service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
 
 @Controller
 @RequestMapping(value = "main")
 public class MainController  {
+    @Resource
+    private UserService userService;
 
     @RequestMapping(value = "font")
     public String toFront() {
@@ -36,5 +42,9 @@ public class MainController  {
     @RequestMapping(value = "controller")
     public String controller() {
         return "back/login";
+    }
+    @RequestMapping("login")
+    public String login(User user){
+        return userService.login(user);
     }
 }

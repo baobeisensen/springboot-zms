@@ -11,7 +11,7 @@ public interface UserDao{
     public User selectUserById(int id);
 
     @Select("select * from user where user_name =#{userName}")
-    public List<User> selectUserByName(String userName);
+    public User selectUserByName(String userName);
 
     @Insert("insert into user(user_name,pwd,email,phone) values (#{user.userName},#{user.pwd},#{user.email},#{user.phone})")
     public int addUser(@Param("user") User user);
