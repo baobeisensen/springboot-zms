@@ -14,6 +14,10 @@ public class MainController  {
     @Resource
     private UserService userService;
 
+    @RequestMapping("login")
+    public String login(User user, HttpSession session){
+        return userService.login(user,session);
+    }
     @RequestMapping(value = "font")
     public String toFront() {
         return "font/index";
@@ -44,8 +48,10 @@ public class MainController  {
     public String controller() {
         return "back/login";
     }
-    @RequestMapping("login")
-    public String login(User user, HttpSession session){
-        return userService.login(user,session);
+    @RequestMapping(value = "toInbox")
+    public String toInbox() {
+        return "back/inbox";
     }
+
+
 }

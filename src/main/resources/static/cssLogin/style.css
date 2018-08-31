@@ -185,7 +185,7 @@ li.twt {
 }
 
 .social-icons ul li.weixin span.icons {
-    background: url("../images/weixin.png") no-repeat;
+    background: url("../img/weixin.png") no-repeat;
     background-size: 100%;
 }
 .social-icons ul li.qq span.icons {
@@ -195,7 +195,7 @@ li.twt {
 .social-icons ul li.weibo span.icons {
     /*--w3layouts--*/
     /*--agileits--*/
-    background: url("../images/weibo.png") no-repeat;
+    background: url("../img/weibo.png") no-repeat;
     background-size: 100%;
 }
 
